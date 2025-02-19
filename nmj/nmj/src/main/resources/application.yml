@@ -1,14 +1,18 @@
 server:
-  port:3306
+  port: 8080  # 3306 ????? ???, ?? MySQL port ??
+
 spring:
   datasource:
-    url: Jdbc:mysql://localhost:3306/nishaka?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/hiruni?createDatabaseIfNotExist=true
     username: root
     password: nishaka
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
-      show-sql: false
+    show-sql: true  # Debugging ??? true ???? ?????
 
-
+  sql:
+    init:
+      mode: always  # Initial schema ?? load ?????
