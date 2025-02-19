@@ -1,0 +1,14 @@
+server:
+  port:3306
+spring:
+  datasource:
+    url: Jdbc:mysql://localhost:3306/nishaka?createDatabaseIfNotExist=true
+    username: root
+    password: nishaka
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: false
+
+
