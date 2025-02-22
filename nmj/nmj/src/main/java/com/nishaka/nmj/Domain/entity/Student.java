@@ -1,10 +1,13 @@
 package com.nishaka.nmj.Domain.entity;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.persistence.*;
+import org.hibernate.annotations.DynamicUpdate;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
 @Entity
+@Table(name = "student")
+@DynamicUpdate
+@JsonPropertyOrder({"id", "name", "address", "email", "grade"})
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +16,9 @@ public class Student {
     private String address;
     private String email;
     private Integer grade;
+
+    public Student() {
+    }
 
     public Student(Integer id, String name, String address, String email, Integer grade) {
         this.id = id;
